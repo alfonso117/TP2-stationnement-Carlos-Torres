@@ -1,6 +1,7 @@
 package stationnement.GUITP2;
 
 import stationnement.Borne;
+import stationnement.Transaction;
 
 import javax.swing.*;
 import javax.swing.text.MaskFormatter;
@@ -47,7 +48,7 @@ public class GUITP2 {
 
     // variables utiles pour vous
     String place =""; //place de stationnement choisie
-    Borne borne; // borne à créer dans le constructeur
+    Borne b; // borne à créer dans le constructeur
 
     //formatage
     public GUITP2() throws ParseException {
@@ -128,7 +129,7 @@ public class GUITP2 {
         boutonRapport.addActionListener(ecouteurControles);
 
         //1. créer objet Borne
-
+        b = new Borne();
     }
 
     private void createUIComponents() {
@@ -209,6 +210,9 @@ public class GUITP2 {
 
     private void boutonEntree_actionPerformed() {
         //3. à coder
+        if (b.verifierCode(place)){
+            Transaction transaction = new Transaction(place);
+        }
     }
 
     private void bouton25_actionPerformed() {
